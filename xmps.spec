@@ -84,7 +84,6 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 install gui/gnome/XMPS.desktop $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 %endif
 
-gzip -9nf AUTHORS README ChangeLog NEWS TODO
 
 %find_lang %{name}
 
@@ -96,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS README ChangeLog NEWS TODO
 %attr(755,root,root) %{_bindir}/xmps
 %attr(755,root,root) %{_libdir}/lib*.so
 %dir %{_libdir}/xmps
