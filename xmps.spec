@@ -30,8 +30,6 @@ BuildRequires:	popt-devel
 BuildRequires:	smpeg-devel >= 0.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 XMPS stands for X MPEG Player System. It's a simple Gtk program that
