@@ -58,7 +58,7 @@ Pliki nag³ówkowe wymagane do budowania wtyczek xmps.
 %setup  -q
 %patch0 -p1
 %build
-automake
+automake -a -c
 gettextize --copy --force
 %configure 
 
