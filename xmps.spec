@@ -61,7 +61,7 @@ Pliki nag³ówkowe wymagane do budowania wtyczek xmps.
 
 %build
 libtoolize -c -f
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %{__gettextize}
