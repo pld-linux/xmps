@@ -53,7 +53,7 @@ Header files required for compiling xmps plugins.
 Pliki nag³ówkowe wymagane do budowania wtyczek xmps.
 
 %prep
-%setup  -q
+%setup -q
 %patch0 -p1
 
 %build
@@ -88,7 +88,7 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/xmps/*{,/*}/lib*.la
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
 %files -f %{name}.lang
