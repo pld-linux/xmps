@@ -31,13 +31,13 @@ Requires:	smpeg >= 0.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-XMPS stands for X MPEG Player System. It's a simple Gtk program that
+XMPS stands for X MPEG Player System. It's a simple GTK+ program that
 will (hopefully) play MPEG-1 files with sound under the Linux
 platform.
 
 %description -l pl
 XMPS oznacza X MPEG Player System - Odtwarzacz MPEG dla X. Jest on
-prostym programem wykorzystuj±cym Gtk który (miejmy nadziejê) odtwarza
+prostym programem wykorzystuj±cym GTK+ który (miejmy nadziejê) odtwarza
 pliki MPEG z obrazem i d¼wiêkiem pod Linuksem.
 
 %package devel
