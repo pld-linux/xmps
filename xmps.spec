@@ -31,7 +31,6 @@ BuildRequires:	popt-devel
 BuildRequires:	smpeg-devel >= 0.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-
 %description
 XMPS stands for X MPEG Player System. It's a simple Gtk program that
 will (hopefully) play MPEG-1 files with sound under the Linux
@@ -59,7 +58,7 @@ Pliki nag³ówkowe wymagane do budowania wtyczek xmps.
 %patch0 -p1
 
 %build
-libtoolize -c -f
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
@@ -83,6 +82,7 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 install gui/gnome/XMPS.desktop $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 %endif
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/xmps/*{,/*}/lib*.la
 
 %find_lang %{name}
 
@@ -111,7 +111,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xmps-config
 %{_libdir}/lib*.la
-%{_libdir}/xmps/*/lib*.la
-%{_libdir}/xmps/*/*/lib*.la
 %{_includedir}/libxmps
 %{_aclocaldir}/*.m4
