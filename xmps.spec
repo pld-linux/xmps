@@ -13,22 +13,22 @@ Source0:	http://xmps.sourceforge.net/sources/%{name}-%{version}.tar.gz
 # Source0-md5:	87937db0d26e599003f0e8db4284e16b
 Patch0:		%{name}-makefile.patch
 URL:		http://xmps.sourceforge.net/
-Requires:	SDL >= 1.0.8
-Requires:	smpeg >= 0.4.0
-%{!?_without_gnome:Requires:		gdk-pixbuf >= 0.6.0}
-%{!?_without_gnome:BuildRequires:	gdk-pixbuf-devel >= 0.6.0}
-%{!?_without_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	SDL-devel >= 1.0.8
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
 BuildRequires:	esound-devel
-BuildRequires:	gtk+-devel >= 1.2.2
+%{!?_without_gnome:BuildRequires:	gdk-pixbuf-devel >= 0.6.0}
 BuildRequires:	gettext-devel
+%{!?_without_gnome:BuildRequires:	gnome-libs-devel}
+BuildRequires:	gtk+-devel >= 1.2.2
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRequires:	nasm
 BuildRequires:	popt-devel
 BuildRequires:	smpeg-devel >= 0.4.0
+Requires:	SDL >= 1.0.8
+%{!?_without_gnome:Requires:		gdk-pixbuf >= 0.6.0}
+Requires:	smpeg >= 0.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
