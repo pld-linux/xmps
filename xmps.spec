@@ -2,12 +2,14 @@ Summary:	X MPEG Player System
 Summary(pl):	Odtwarzacz plików MPEG dla X
 Name:		xmps
 #Version:	0.1.0
-Version:	cvs20000618
+Version:	cvs20000622
 Release:	1
 Group:		X11/Applications/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
 License:	GPL
 Source0:	http://www-eleves.enst-bretagne.fr/~chavarri/xmps/sources/%{name}-%{version}.tar.gz
+Patch0:		xmps-DivXMakefile.patch
+
 URL:		http://www-eleves.enst-bretagne.fr/~chavarri/xmps/
 Requires:	applnk
 Requires:	gtk+ >= 1.2.2
@@ -19,6 +21,7 @@ Requires:	smpeg >= 0.4.0
 BuildRequires:	nasm
 BuildRequires:	gettext-devel
 BuildRequires:	libstdc++-devel
+BuildRequires:	popt-devel
 BuildRequires:	gtk+-devel >= 1.2.2
 BuildRequires:	gnome-libs-devel
 BuildRequires:	smpeg-devel >= 0.4.0
@@ -41,14 +44,20 @@ obrazem i d¼wiêkiem na Linuksie.
 
 %prep
 %setup  -q
-%build
+%patch0 -p1
 
+%build
 NOCONFIGURE="yes" ./autogen.sh
 
 LDFLAGS="-s" ; export LDFLAGS
 %configure 
 
 %{__make}
+
+# The AVI/DivX ;) codec.
+cd Input/avi
+%{__make} OPT_FLAGS="$RPM_OPT_FLAGS"
+cd ../..
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -63,6 +72,22 @@ install xmps.png "$RPM_BUILD_ROOT%{_datadir}/pixmaps"
 gzip -9nf AUTHORS README ChangeLog NEWS TODO
 
 %find_lang %{name}
+
+# The AVI/DivX ;) codec.
+install Input/avi/libavi.so "$RPM_BUILD_ROOT%{_libdir}/%{name}/Codecs"
+
+%post
+cat <<EOF
+NOTE: This program gives possibility to watch "DivX ;)" compressed files.
+      But this is probably done with violation of some copyright. Do it on your
+      own risk.
+      
+      To do so, you will need this:
+      http://www-eleves.enst-bretagne.fr/~chavarri/xmps/sources/divxc32.dll
+      file. Put it into directory you have write access to, and then put path
+      to the file into configuration dialog of "AVI Codec (DivX ;))" in
+      "preferences" window.
+EOF
 
 %clean
 rm -rf $RPM_BUILD_ROOT
