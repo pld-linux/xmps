@@ -63,7 +63,7 @@ Pliki nag³ówkowe wymagane do budowania wtyczek xmps.
 libtoolize -c -f
 aclocal
 autoconf
-automake -a -c
+automake -a -c -f
 gettextize --copy --force
 %configure \
 	--enable-static=no \
