@@ -2,7 +2,7 @@ Summary:	X MPEG Player System
 Summary(pl):	Odtwarzacz plików MPEG dla X
 Name:		xmps
 #Version:	0.1.0
-Version:	cvs20000622
+Version:	cvs20000624
 Release:	1
 Group:		X11/Applications/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
