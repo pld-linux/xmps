@@ -112,8 +112,8 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xmps-config
-%attr(755,root,root) %{_libdir}/lib*.la
-%attr(755,root,root) %{_libdir}/xmps/*/lib*.la
-%attr(755,root,root) %{_libdir}/xmps/*/*/lib*.la
+%{_libdir}/lib*.la
+%{_libdir}/xmps/*/lib*.la
+%{_libdir}/xmps/*/*/lib*.la
 %{_includedir}/libxmps
 %{_aclocaldir}/*.m4
