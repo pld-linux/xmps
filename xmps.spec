@@ -64,7 +64,7 @@ libtoolize -c -f
 aclocal
 %{__autoconf}
 %{__automake}
-gettextize --copy --force
+%{__gettextize}
 %configure \
 	--enable-static=no \
 	%{?_without_gnome:--disable-gnome}
