@@ -1,0 +1,14 @@
+diff -ruN xmps-0.2.0.orig/Makefile.am xmps-0.2.0/Makefile.am
+--- xmps-0.2.0.orig/Makefile.am	Fri Nov  3 01:29:03 2000
++++ xmps-0.2.0/Makefile.am	Sat Jan 20 15:11:16 2001
+@@ -16,10 +16,6 @@
+ m4datadir = $(datadir)/aclocal
+ m4data_DATA = xmps.m4
+ 
+-install:
+-	chmod 755 $(bindir)/xmps-config
+-	ldconfig
+-
+ ## make rpms
+ rpm: Makefile
+ 	$(MAKE) dist
