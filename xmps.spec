@@ -2,13 +2,14 @@ Summary:	X MPEG Player System
 Summary(pl):	Odtwarzacz plików MPEG dla X
 Name:		xmps
 Version:	0.1.3
-Release:	1
-Group:		X11/Applications/Multimedia
-Group(pl):	X11/Aplikacje/Multimedia
+Release:	2
 License:	GPL
-Source0:	http://www-eleves.enst-bretagne.fr/~chavarri/xmps/sources/%{name}-%{version}.tar.gz
+Group:		X11/Applications/Multimedia
+Group(de):	X11/Applikationen/Multimedia
+Group(pl):	X11/Aplikacje/Multimedia
+Source0:	http://xmps.sourceforge.net/sources/%{name}-%{version}.tar.gz
 Patch0:		%{name}-0.1.3-destdir.patch
-URL:		http://www-eleves.enst-bretagne.fr/~chavarri/xmps/
+URL:		http://xmps.sourceforge.net/
 Requires:	gdk-pixbuf >= 0.6.0
 Requires:	SDL >= 1.0.8
 Requires:	smpeg >= 0.4.0
@@ -43,6 +44,7 @@ pliki MPEG z obrazem i d¼wiêkiem na Linuksie.
 Summary:	xmps - header files
 Summary(pl):	xmps - pliki nag³ówkowe
 Group:		X11/Development/Libraries
+Group(de):	X11/Entwicklung/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
@@ -59,7 +61,6 @@ Pliki nag³ówkowe wymagane do budowania wtyczek xmps.
 %build
 automake
 gettextize --copy --force
-LDFLAGS="-s" ; export LDFLAGS
 %configure 
 
 %{__make}
