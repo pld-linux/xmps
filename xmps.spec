@@ -6,7 +6,7 @@ Summary:	X MPEG Player System
 Summary(pl):	Odtwarzacz plików MPEG dla X
 Name:		xmps
 Version:	0.2.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Multimedia
 Group(de):	X11/Applikationen/Multimedia
@@ -69,7 +69,7 @@ automake -a -c
 gettextize --copy --force
 %configure \
 	--enable-static=no \
-	%{!?bcond_off_gnome:--disable-gnome}
+	%{?bcond_off_gnome:--disable-gnome}
 
 %{__make}
 
@@ -81,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 	desktopdir=%{_applnkdir}/Multimedia \
 	m4datadir=%{_aclocaldir}
 
-%if %{?bcond_off_gnome:1}%{!?bcond_on_gnome:1}
+%if %{?bcond_off_gnome:1}%{!?bcond_off_gnome:0}
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 install gui/gnome/XMPS.desktop $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 %endif
