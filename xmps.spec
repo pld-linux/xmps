@@ -81,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 	desktopdir=%{_applnkdir}/Multimedia \
 	m4datadir=%{_aclocaldir}
 
-%if %{?bcond_off_gnome:1}%{!?bcond_off_gnome:0}
+%if %{?bcond_off_gnome:1}%{!?bcond_on_gnome:1}
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 install gui/gnome/XMPS.desktop $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 %endif
