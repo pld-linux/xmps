@@ -1,22 +1,27 @@
 Summary:	X MPEG Player System
 Summary(pl):	Odtwarzacz plików MPEG dla X
 Name:		xmps
-Version:	0.1.0
-#Version:	cvs
+#Version:	0.1.0
+Version:	cvs20000618
 Release:	1
 Group:		X11/Applications/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
 License:	GPL
 Source0:	http://www-eleves.enst-bretagne.fr/~chavarri/xmps/sources/%{name}-%{version}.tar.gz
 URL:		http://www-eleves.enst-bretagne.fr/~chavarri/xmps/
+Requires:	applnk
 Requires:	gtk+ >= 1.2.2
 Requires:	glib >= 1.2.2
 Requires:	gdk-pixbuf >= 0.6.0
 Requires:	SDL >= 1.0.8
+# Requires seeking ability introduced in 0.4.0.
+Requires:	smpeg >= 0.4.0
 BuildRequires:	nasm
+BuildRequires:	gettext-devel
+BuildRequires:	libstdc++-devel
 BuildRequires:	gtk+-devel >= 1.2.2
 BuildRequires:	gnome-libs-devel
-BuildRequires:	smpeg-devel
+BuildRequires:	smpeg-devel >= 0.4.0
 BuildRequires:	SDL-devel >= 1.0.8
 BuildRequires:	gdk-pixbuf-devel >= 0.6.0
 BuildRequires:	esound-devel
@@ -38,8 +43,7 @@ obrazem i d¼wiêkiem na Linuksie.
 %setup  -q
 %build
 
-#export NOCONFIGURE="x"
-#./autogen.sh
+NOCONFIGURE="yes" ./autogen.sh
 
 LDFLAGS="-s" ; export LDFLAGS
 %configure 
@@ -58,10 +62,12 @@ install xmps.png "$RPM_BUILD_ROOT%{_datadir}/pixmaps"
 
 gzip -9nf AUTHORS README ChangeLog NEWS TODO
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/xmps
@@ -75,4 +81,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/xmps/skins
 %{_datadir}/xmps/skins/DarkDepth
 %{_datadir}/xmps/skins/default
-%{_datadir}/xmps/xmps_intro.xpm
+%{_datadir}/xmps/*.xpm
+%{_applnkdir}/Multimedia/*
+%{_datadir}/pixmaps/*
