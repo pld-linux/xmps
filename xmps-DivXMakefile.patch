@@ -1,0 +1,90 @@
+diff -urN xmps.orig/Input/avi/Makefile xmps/Input/avi/Makefile
+--- xmps.orig/Input/avi/Makefile	Fri Jun 16 21:54:06 2000
++++ xmps/Input/avi/Makefile	Tue Jun 20 23:17:40 2000
+@@ -32,9 +32,9 @@
+ 
+ DEFINES=-rdynamic -fPIC -g  -DMMX
+ 
+-CFLAGS=-Iinclude -I/usr/X11R6/include -I../.. -I/usr/lib/glib/include/
++CFLAGS=-Iinclude -I/usr/X11R6/include -I../.. -I/usr/lib/glib/include/ $(OPT_FLAGS)
+ 
+-LIBS = -lpthread -ldl -lSDL
++LIBS = -lpthread -ldl -lSDL -L/usr/X11R6/lib
+ 
+ all: avi_codec.o avi_configure.o
+ 	for q in $(SUBDIRS); do \
+diff -urN xmps.orig/Input/avi/audiodecoder/Makefile xmps/Input/avi/audiodecoder/Makefile
+--- xmps.orig/Input/avi/audiodecoder/Makefile	Fri Jun 16 21:49:37 2000
++++ xmps/Input/avi/audiodecoder/Makefile	Tue Jun 20 21:46:55 2000
+@@ -3,7 +3,7 @@
+ LIB_OBJECTS=audiodecoder.o
+ CPP=g++
+ CC=gcc
+-CFLAGS=-I../include
++CFLAGS=-I../include $(OPT_FLAGS)
+ 
+ SUBDIRS=pcm mpeg gsm61
+ all: libaudiodec.a 
+diff -urN xmps.orig/Input/avi/audiodecoder/gsm61/Makefile xmps/Input/avi/audiodecoder/gsm61/Makefile
+--- xmps.orig/Input/avi/audiodecoder/gsm61/Makefile	Fri Jun 16 21:49:37 2000
++++ xmps/Input/avi/audiodecoder/gsm61/Makefile	Tue Jun 20 21:48:11 2000
+@@ -1,4 +1,4 @@
+-DEFINES=-rdynamic -fPIC -O2
++DEFINES=-rdynamic -fPIC $(OPT_FLAGS)
+ 
+ LIB_OBJECTS=xa_gsm.o gsm61dec.o
+ CPP=g++
+diff -urN xmps.orig/Input/avi/audiodecoder/mpeg/Makefile xmps/Input/avi/audiodecoder/mpeg/Makefile
+--- xmps.orig/Input/avi/audiodecoder/mpeg/Makefile	Fri Jun 16 21:49:38 2000
++++ xmps/Input/avi/audiodecoder/mpeg/Makefile	Tue Jun 20 21:47:33 2000
+@@ -1,4 +1,4 @@
+-DEFINES=-rdynamic -fPIC -O2
++DEFINES=-rdynamic -fPIC $(OPT_FLAGS)
+ LIB_OBJECTS=bitwindow.o filter.o filter_2.o huffmantable.o \
+  mpeglayer1.o mpeglayer2.o mpeglayer3.o mpegtable.o \
+  mpegtoraw.o
+diff -urN xmps.orig/Input/avi/audiodecoder/pcm/Makefile xmps/Input/avi/audiodecoder/pcm/Makefile
+--- xmps.orig/Input/avi/audiodecoder/pcm/Makefile	Fri Jun 16 21:49:39 2000
++++ xmps/Input/avi/audiodecoder/pcm/Makefile	Tue Jun 20 21:59:44 2000
+@@ -1,4 +1,4 @@
+-DEFINES=-rdynamic -fPIC -O2
++DEFINES=-rdynamic -fPIC $(OPT_FLAGS)
+ 
+ LIB_OBJECTS=pcm.o
+ CPP=g++
+diff -urN xmps.orig/Input/avi/avifile/Makefile xmps/Input/avi/avifile/Makefile
+--- xmps.orig/Input/avi/avifile/Makefile	Fri Jun 16 21:49:39 2000
++++ xmps/Input/avi/avifile/Makefile	Tue Jun 20 21:46:38 2000
+@@ -2,7 +2,7 @@
+ 
+ LIB_OBJECTS=aviread.o aviwrite.o
+ CPP=gcc
+-CFLAGS=-I../include
++CFLAGS=-I../include $(OPT_FLAGS)
+ 
+ all: libavifile.a
+     
+diff -urN xmps.orig/Input/avi/loader/Makefile xmps/Input/avi/loader/Makefile
+--- xmps.orig/Input/avi/loader/Makefile	Fri Jun 16 21:49:41 2000
++++ xmps/Input/avi/loader/Makefile	Tue Jun 20 21:46:20 2000
+@@ -4,7 +4,7 @@
+ ext.o externals.o driver.o vfl.o \
+ pe_resource.o resource.o registry.o elfdll.o
+ 
+-CFLAGS=-I../include
++CFLAGS=-I../include $(OPT_FLAGS)
+ 
+ CC=gcc
+ 
+diff -urN xmps.orig/Input/avi/videocodec/Makefile xmps/Input/avi/videocodec/Makefile
+--- xmps.orig/Input/avi/videocodec/Makefile	Fri Jun 16 21:49:42 2000
++++ xmps/Input/avi/videocodec/Makefile	Tue Jun 20 21:46:06 2000
+@@ -2,7 +2,7 @@
+ 
+ LIB_OBJECTS=VideoEncoder.o VideoDecoder.o
+ CPP=g++
+-CFLAGS=-I../include
++CFLAGS=-I../include $(OPT_FLAGS)
+ 
+ all: libvideocodec.a
+     
