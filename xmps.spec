@@ -9,8 +9,6 @@ Version:	0.2.0
 Release:	5
 License:	GPL
 Group:		X11/Applications/Multimedia
-Group(de):	X11/Applikationen/Multimedia
-Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://xmps.sourceforge.net/sources/%{name}-%{version}.tar.gz
 Patch0:		%{name}-makefile.patch
 URL:		http://xmps.sourceforge.net/
@@ -49,13 +47,6 @@ pliki MPEG z obrazem i d╪wiЙkiem pod Linuksem.
 Summary:	xmps - header files
 Summary(pl):	xmps - pliki nagЁСwkowe
 Group:		X11/Development/Libraries
-Group(de):	X11/Entwicklung/Libraries
-Group(es):	X11/Desarrollo/Bibliotecas
-Group(fr):	X11/Development/Librairies
-Group(pl):	X11/Programowanie/Biblioteki
-Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
-Group(ru):	X11/Разработка/Библиотеки
-Group(uk):	X11/Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
