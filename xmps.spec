@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _without_gnome - without GNOME support
+%bcond_without	gnome	# without GNOME support
 #
 Summary:	X MPEG Player System
 Summary(pl):	Odtwarzacz plików MPEG dla X
@@ -9,17 +9,16 @@ Version:	0.2.0
 Release:	5
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	http://xmps.sourceforge.net/sources/%{name}-%{version}.tar.gz
+Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	87937db0d26e599003f0e8db4284e16b
 Patch0:		%{name}-makefile.patch
-URL:		http://xmps.sourceforge.net/
 BuildRequires:	SDL-devel >= 1.0.8
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel
-%{!?_without_gnome:BuildRequires:	gdk-pixbuf-devel >= 0.6.0}
+%{?with_gnome:BuildRequires:	gdk-pixbuf-devel >= 0.6.0}
 BuildRequires:	gettext-devel
-%{!?_without_gnome:BuildRequires:	gnome-libs-devel}
+%{?with_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	gtk+-devel >= 1.2.2
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
@@ -27,7 +26,7 @@ BuildRequires:	nasm
 BuildRequires:	popt-devel
 BuildRequires:	smpeg-devel >= 0.4.0
 Requires:	SDL >= 1.0.8
-%{!?_without_gnome:Requires:		gdk-pixbuf >= 0.6.0}
+%{?with_gnome:Requires:		gdk-pixbuf >= 0.6.0}
 Requires:	smpeg >= 0.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -65,7 +64,7 @@ Pliki nag³ówkowe wymagane do budowania wtyczek xmps.
 %{__gettextize}
 %configure \
 	--enable-static=no \
-	%{?_without_gnome:--disable-gnome}
+	%{!?with_gnome:--disable-gnome}
 
 %{__make}
 
@@ -77,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 	desktopdir=%{_applnkdir}/Multimedia \
 	m4datadir=%{_aclocaldir}
 
-%if %{?_without_gnome:1}%{!?_without_gnome:0}
+%if ! %{with gnome}
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 install gui/gnome/XMPS.desktop $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 %endif
