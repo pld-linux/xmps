@@ -6,7 +6,7 @@ Summary:	X MPEG Player System
 Summary(pl):	Odtwarzacz plików MPEG dla X
 Name:		xmps
 Version:	0.2.0
-Release:	4
+Release:	5
 License:	GPL
 Group:		X11/Applications/Multimedia
 Group(de):	X11/Applikationen/Multimedia
@@ -14,15 +14,16 @@ Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://xmps.sourceforge.net/sources/%{name}-%{version}.tar.gz
 Patch0:		%{name}-makefile.patch
 URL:		http://xmps.sourceforge.net/
-%{!?_without_gnome:Requires:	gdk-pixbuf >= 0.6.0}
 Requires:	SDL >= 1.0.8
 Requires:	smpeg >= 0.4.0
+%{!?_without_gnome:Requires:		gdk-pixbuf >= 0.6.0}
+%{!?_without_gnome:BuildRequires:	gdk-pixbuf-devel >= 0.6.0}
+%{!?_without_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	SDL-devel >= 1.0.8
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libtool
 BuildRequires:	esound-devel
-%{!?_without_gnome:BuildRequires:	gdk-pixbuf-devel >= 0.6.0}
-%{!?_without_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	gtk+-devel >= 1.2.2
 BuildRequires:	gettext-devel
 BuildRequires:	libstdc++-devel
@@ -63,6 +64,7 @@ Pliki nag³ówkowe wymagane do budowania wtyczek xmps.
 %patch0 -p1
 
 %build
+libtoolize -c -f
 aclocal
 autoconf
 automake -a -c
