@@ -10,6 +10,7 @@ Release:	5
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://xmps.sourceforge.net/sources/%{name}-%{version}.tar.gz
+# Source0-md5:	87937db0d26e599003f0e8db4284e16b
 Patch0:		%{name}-makefile.patch
 URL:		http://xmps.sourceforge.net/
 Requires:	SDL >= 1.0.8
