@@ -1,14 +1,14 @@
 Summary:	X MPEG Player System
 Summary(pl):	Odtwarzacz plików MPEG dla X
 Name:		xmps
-Version:	0.1.3
-Release:	2
+Version:	0.2.0
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Group(de):	X11/Applikationen/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://xmps.sourceforge.net/sources/%{name}-%{version}.tar.gz
-Patch0:		%{name}-0.1.3-destdir.patch
+Patch0:		%{name}-makefile.patch
 URL:		http://xmps.sourceforge.net/
 Requires:	gdk-pixbuf >= 0.6.0
 Requires:	SDL >= 1.0.8
@@ -57,7 +57,6 @@ Pliki nag³ówkowe wymagane do budowania wtyczek xmps.
 %prep
 %setup  -q
 %patch0 -p1
-
 %build
 automake
 gettextize --copy --force
@@ -83,25 +82,18 @@ rm -rf $RPM_BUILD_ROOT
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_bindir}/xmps
 %attr(755,root,root) %{_libdir}/lib*.so
-%dir %{_libdir}/xmps
-%dir %{_libdir}/xmps/Codecs
-%attr(755,root,root) %{_libdir}/xmps/Codecs/*.so
-%{_libdir}/xmps/Codecs/*.la
-%dir %{_libdir}/xmps/Renderers
-%attr(755,root,root) %{_libdir}/xmps/Renderers/*.so
-%{_libdir}/xmps/Renderers/*.la
+%{_libdir}/xmps
 %{_datadir}/xmps
 %{_applnkdir}/Multimedia/*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xmps-config
-%{_includedir}/xmps
+%{_includedir}/libxmps
 %{_libdir}/lib*.la
 %{_aclocaldir}/*.m4
