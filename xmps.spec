@@ -13,18 +13,18 @@ URL:		http://xmps.sourceforge.net/
 Requires:	gdk-pixbuf >= 0.6.0
 Requires:	SDL >= 1.0.8
 Requires:	smpeg >= 0.4.0
-BuildRequires:	nasm
+BuildRequires:	SDL-devel >= 1.0.8
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	esound-devel
+BuildRequires:	gdk-pixbuf-devel >= 0.6.0
+BuildRequires:	gnome-libs-devel
+BuildRequires:	gtk+-devel >= 1.2.2
 BuildRequires:	gettext-devel
 BuildRequires:	libstdc++-devel
+BuildRequires:	nasm
 BuildRequires:	popt-devel
-BuildRequires:	gtk+-devel >= 1.2.2
-BuildRequires:	gnome-libs-devel
 BuildRequires:	smpeg-devel >= 0.4.0
-BuildRequires:	SDL-devel >= 1.0.8
-BuildRequires:	gdk-pixbuf-devel >= 0.6.0
-BuildRequires:	esound-devel
-BuildRequires:	gettext-devel
-BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -59,6 +59,8 @@ Pliki nag³ówkowe wymagane do budowania wtyczek xmps.
 %patch0 -p1
 
 %build
+aclocal
+autoconf
 automake -a -c
 gettextize --copy --force
 %configure \
