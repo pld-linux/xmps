@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# bcond_off_gnome - without GNOME support
+# _without_gnome - without GNOME support
 #
 Summary:	X MPEG Player System
 Summary(pl):	Odtwarzacz plików MPEG dla X
@@ -14,15 +14,15 @@ Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://xmps.sourceforge.net/sources/%{name}-%{version}.tar.gz
 Patch0:		%{name}-makefile.patch
 URL:		http://xmps.sourceforge.net/
-%{!?bcond_off_gnome:Requires:	gdk-pixbuf >= 0.6.0}
+%{!?_without_gnome:Requires:	gdk-pixbuf >= 0.6.0}
 Requires:	SDL >= 1.0.8
 Requires:	smpeg >= 0.4.0
 BuildRequires:	SDL-devel >= 1.0.8
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel
-%{!?bcond_off_gnome:BuildRequires:	gdk-pixbuf-devel >= 0.6.0}
-%{!?bcond_off_gnome:BuildRequires:	gnome-libs-devel}
+%{!?_without_gnome:BuildRequires:	gdk-pixbuf-devel >= 0.6.0}
+%{!?_without_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	gtk+-devel >= 1.2.2
 BuildRequires:	gettext-devel
 BuildRequires:	libstdc++-devel
@@ -69,7 +69,7 @@ automake -a -c
 gettextize --copy --force
 %configure \
 	--enable-static=no \
-	%{?bcond_off_gnome:--disable-gnome}
+	%{?_without_gnome:--disable-gnome}
 
 %{__make}
 
@@ -81,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 	desktopdir=%{_applnkdir}/Multimedia \
 	m4datadir=%{_aclocaldir}
 
-%if %{?bcond_off_gnome:1}%{!?bcond_off_gnome:0}
+%if %{?_without_gnome:1}%{!?_without_gnome:0}
 install -d $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 install gui/gnome/XMPS.desktop $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 %endif
