@@ -7,7 +7,7 @@ Group:		X11/Applications/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
 License:	GPL
 Source0:	http://www-eleves.enst-bretagne.fr/~chavarri/xmps/sources/%{name}-%{version}.tar.gz
-Patch0:		xmps-0.1.3-destdir.patch
+Patch0:		%{name}-0.1.3-destdir.patch
 URL:		http://www-eleves.enst-bretagne.fr/~chavarri/xmps/
 Requires:	gdk-pixbuf >= 0.6.0
 Requires:	SDL >= 1.0.8
@@ -30,13 +30,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_mandir		%{_prefix}/man
 
 %description
-XMPS stands for X MPEG Player System. It's a simple Gtk program that will
-(hopefully) play MPEG-1 files with sound under the Linux platform.
+XMPS stands for X MPEG Player System. It's a simple Gtk program that
+will (hopefully) play MPEG-1 files with sound under the Linux
+platform.
 
 %description -l pl
-XMPS oznacza X MPEG Player System - Odtwarzacz MPEG dla X. Jest on prostym
-programem wykorzystuj±cym Gtk który (miejmy nadziejê) odtwarza pliki MPEG z
-obrazem i d¼wiêkiem na Linuksie.
+XMPS oznacza X MPEG Player System - Odtwarzacz MPEG dla X. Jest on
+prostym programem wykorzystuj±cym Gtk który (miejmy nadziejê) odtwarza
+pliki MPEG z obrazem i d¼wiêkiem na Linuksie.
 
 %package devel
 Summary:	xmps - header files
