@@ -9,6 +9,7 @@ Group(de):	X11/Applikationen/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://xmps.sourceforge.net/sources/%{name}-%{version}.tar.gz
 Patch0:		%{name}-makefile.patch
+#Patch0:		%{name}-DESTDIR.patch
 URL:		http://xmps.sourceforge.net/
 Requires:	gdk-pixbuf >= 0.6.0
 Requires:	SDL >= 1.0.8
@@ -60,7 +61,8 @@ Pliki nag³ówkowe wymagane do budowania wtyczek xmps.
 %build
 automake -a -c
 gettextize --copy --force
-%configure 
+%configure \
+	--enable-static=no
 
 %{__make}
 
@@ -87,7 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/xmps
 %attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/xmps
+%attr(755,root,root) %{_libdir}/xmps
 %{_datadir}/xmps
 %{_applnkdir}/Multimedia/*
 
