@@ -9,11 +9,7 @@ Group(pl):	X11/Aplikacje/Multimedia
 License:	GPL
 Source0:	http://www-eleves.enst-bretagne.fr/~chavarri/xmps/sources/%{name}-%{version}.tar.gz
 Patch0:		xmps-DivXMakefile.patch
-
 URL:		http://www-eleves.enst-bretagne.fr/~chavarri/xmps/
-Requires:	applnk
-Requires:	gtk+ >= 1.2.2
-Requires:	glib >= 1.2.2
 Requires:	gdk-pixbuf >= 0.6.0
 Requires:	SDL >= 1.0.8
 # Requires seeking ability introduced in 0.4.0.
