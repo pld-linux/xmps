@@ -42,7 +42,7 @@ platform.
 %description -l pl
 XMPS oznacza X MPEG Player System - Odtwarzacz MPEG dla X. Jest on
 prostym programem wykorzystuj±cym Gtk który (miejmy nadziejê) odtwarza
-pliki MPEG z obrazem i d¼wiêkiem na Linuksie.
+pliki MPEG z obrazem i d¼wiêkiem pod Linuksem.
 
 %package devel
 Summary:	xmps - header files
