@@ -1,0 +1,2 @@
+- added --enable-static=no
+- changed permissions (755) for files and dirctories in %{_libdir}/xmps
