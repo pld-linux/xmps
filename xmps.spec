@@ -26,7 +26,7 @@ BuildRequires:	nasm
 BuildRequires:	popt-devel
 BuildRequires:	smpeg-devel >= 0.4.0
 Requires:	SDL >= 1.0.8
-%{?with_gnome:Requires:		gdk-pixbuf >= 0.6.0}
+%{?with_gnome:Requires:	gdk-pixbuf >= 0.6.0}
 Requires:	smpeg >= 0.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -37,14 +37,14 @@ platform.
 
 %description -l pl
 XMPS oznacza X MPEG Player System - Odtwarzacz MPEG dla X. Jest on
-prostym programem wykorzystuj±cym GTK+ który (miejmy nadziejê) odtwarza
-pliki MPEG z obrazem i d¼wiêkiem pod Linuksem.
+prostym programem wykorzystuj±cym GTK+ który (miejmy nadziejê)
+odtwarza pliki MPEG z obrazem i d¼wiêkiem pod Linuksem.
 
 %package devel
 Summary:	xmps - header files
 Summary(pl):	xmps - pliki nag³ówkowe
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files required for compiling xmps plugins.
