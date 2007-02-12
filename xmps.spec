@@ -3,7 +3,7 @@
 %bcond_without	gnome	# without GNOME support
 #
 Summary:	X MPEG Player System
-Summary(pl.UTF-8):   Odtwarzacz plików MPEG dla X
+Summary(pl.UTF-8):	Odtwarzacz plików MPEG dla X
 Name:		xmps
 Version:	0.2.0
 Release:	5
@@ -42,7 +42,7 @@ odtwarza pliki MPEG z obrazem i dźwiękiem pod Linuksem.
 
 %package devel
 Summary:	xmps - header files
-Summary(pl.UTF-8):   xmps - pliki nagłówkowe
+Summary(pl.UTF-8):	xmps - pliki nagłówkowe
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
