@@ -3,7 +3,7 @@
 %bcond_without	gnome	# without GNOME support
 #
 Summary:	X MPEG Player System
-Summary(pl):	Odtwarzacz plików MPEG dla X
+Summary(pl.UTF-8):   Odtwarzacz plikÃ³w MPEG dla X
 Name:		xmps
 Version:	0.2.0
 Release:	5
@@ -35,22 +35,22 @@ XMPS stands for X MPEG Player System. It's a simple GTK+ program that
 will (hopefully) play MPEG-1 files with sound under the Linux
 platform.
 
-%description -l pl
+%description -l pl.UTF-8
 XMPS oznacza X MPEG Player System - Odtwarzacz MPEG dla X. Jest on
-prostym programem wykorzystuj±cym GTK+ który (miejmy nadziejê)
-odtwarza pliki MPEG z obrazem i d¼wiêkiem pod Linuksem.
+prostym programem wykorzystujÄ…cym GTK+ ktÃ³ry (miejmy nadziejÄ™)
+odtwarza pliki MPEG z obrazem i dÅºwiÄ™kiem pod Linuksem.
 
 %package devel
 Summary:	xmps - header files
-Summary(pl):	xmps - pliki nag³ówkowe
+Summary(pl.UTF-8):   xmps - pliki nagÅ‚Ã³wkowe
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files required for compiling xmps plugins.
 
-%description devel -l pl
-Pliki nag³ówkowe wymagane do budowania wtyczek xmps.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe wymagane do budowania wtyczek xmps.
 
 %prep
 %setup -q
