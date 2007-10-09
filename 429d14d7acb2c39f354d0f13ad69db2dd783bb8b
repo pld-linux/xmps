@@ -1,0 +1,2 @@
+- added autoconf to Buildrequires because autoconf in automake 1.4b environment
+  reqires regenerate (added aclocal; autoconf on top %build).
